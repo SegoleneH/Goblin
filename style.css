@@ -1,0 +1,246 @@
+                /* GENERAL */
+
+*{
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background: linear-gradient(90deg, rgba(19,57,23,1) 0%, rgba(56,112,61,1) 28.53%, rgba(77,149,89,1) 75.52%);
+}
+#centerBody{
+
+}
+a{
+    text-decoration: none;
+}
+
+            /* FLEXBOX */
+.disFlex{
+    display: flex;
+    flex-wrap: wrap;
+}
+/* enlever display:flex + ajouter class=disflex aux balises */
+.flexRow{
+    display: flex;
+    flex-direction: row;
+}
+.flexColumn{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.flexCenter{
+    justify-content: center;
+}
+
+                /* HEADER */
+header{
+    height: 15vh;
+    font-weight: 700;
+    margin: 4vh 0 0 0;
+}
+.headerNavBar{
+    justify-content: space-around;
+}
+.headerNavBar > div{
+    margin: 0 4vh 0 4vh;
+}
+#name{
+    margin: 0 0 0 5vh;
+}
+header > nav{
+    width: 100%;
+    display: flex;    
+    justify-content: space-between;
+}
+
+                /* SECTIONS */
+.flexColumn > nav{
+    margin: 60vh 0;
+}
+.networkIcons{
+    margin: 1vh;
+}
+#reducedWidth{
+    width: 70%;
+}
+button{
+    border: solid 1px #4d9559;
+    background-color: #4d9559;
+    border-radius: 28px;
+    padding: 15px 20px;
+    margin: 0 5vh;
+}
+/* button2 padding */
+button:hover{
+    background-color: transparent;
+    border: solid 1px white;
+}
+#buttonDisplay{
+    flex-direction: row;
+    position: absolute;
+    top: 130vh;
+}
+img{
+    padding: 0 5vh;
+}
+
+                /* TEXT */
+.headerNavBar>div :hover{
+    text-decoration: underline white 2px;
+}
+#textColumn{
+    margin: 0 20vh;
+    width: 60%;
+    line-height: 10vh;
+}
+h1{
+    font-size: 1em;
+    margin: 0 0 5vh 0;
+}
+h2{
+    font-size: 1em;
+    margin: 0 0 5vh;
+}
+h3{ 
+    font-family: 'Permanent Marker', cursive;
+    font-size: 6em;
+    margin: 5vh 5vh 5vh 0;
+}
+p{
+    margin: 10vh 0;
+}
+
+                /* BURGER MENU */
+.burgerMenu{
+    background-color: rgba(19,57,23,1);
+    z-index: 1;
+    line-height: 15vh;
+    height: 100vh; 
+/*  ^^^^^^ à modifier  */
+}
+.menu{
+    width: 100%;
+}
+.burgerIcons{
+    position: absolute;
+    right: 5vh;
+    cursor: pointer;
+	overflow: hidden;
+}
+.burgerIcons>input{
+    position: absolute;
+    right: 0.5vh;
+    top: 1.5vh;
+    display: none;
+}
+/* quand .menu=actif, burgerIcon=display none */
+/* dans .menu{}, closeIcon=display none */
+
+.lienBurger{
+    width: 100%;
+}
+.lienBurger:hover{
+    background-color: rgba(56,112,61,1);
+}
+/* si .burger=active, main=display:none
+ */
+.burgerIcons:checked ~ main{
+    display: none;
+}
+.burgerIcons:checked ~ main img{
+    position: initial;
+}
+.burgerIcons:checked ~ main button{
+    position: initial;
+}
+/* NE FONCTIONNE PAS 
+
+.burgerIcons :checked .menu{
+    animation: appearance 1s timing-function delay iteration-count direction fill-mode;
+}
+@keyframes appearance{
+    0% { top: 0; left: 0; }
+    30% { top: 50px; }
+    68%, 72% { left: 50px; }
+    100% { top: 100px; left: 100%; }
+}*/
+
+@media (max-width: 767px) {
+/* MOBILE */
+    .flexRow{
+        flex-direction: column;
+    }
+   .flexColumn{
+        align-content: center;
+    }
+    .flexColumn > nav , .headerNavBar{
+        display: none;
+    }
+    .headerNavBar{
+        display: none;
+    }
+    #buttonDisplay{
+            flex-direction: column;
+        }
+    button{
+        flex-direction: row;
+    }
+    .absolute{
+        top: 300vh;
+    }
+    img{
+        margin: 30vh 5vh;
+    }
+    #textColumn{
+        margin: 0;
+    }
+    #reducedWidth{
+        width: 100%;
+    }
+    .burgerMenu{
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+ /* TABLET */   
+    body{
+        margin: 0;
+    }
+    .headerNavBar{
+        display: none;
+    }
+    .flexColumn{
+        align-content: center;
+    }
+    #reducedWidth{
+        width: 50%;
+    }
+    img{
+        width: 90%;
+    }
+    h1{
+        font-size: 0.8em;
+    }
+    h2{
+        font-size: 0.8em;   
+    }
+    h3{ 
+        font-size: 4em;
+    }
+    .absolute{
+        top: 150vh;
+    }
+} 
+
+@media (min-width: 1024px) {
+ /* RESPONSIVE LAPTOP */
+
+ .burgerMenu{
+    display: none;
+ }
+ .burgerMenu>a{
+    display: none;
+ }
+}
