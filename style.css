@@ -7,9 +7,7 @@
 body{
     background: linear-gradient(90deg, rgba(19,57,23,1) 0%, rgba(56,112,61,1) 28.53%, rgba(77,149,89,1) 75.52%);
 }
-#centerBody{
 
-}
 a{
     text-decoration: none;
 }
@@ -38,9 +36,10 @@ header{
     height: 15vh;
     font-weight: 700;
     margin: 4vh 0 0 0;
+    width: 100%;
 }
 .headerNavBar{
-    justify-content: space-around;
+    justify-content: end;
 }
 .headerNavBar > div{
     margin: 0 4vh 0 4vh;
@@ -57,10 +56,9 @@ header > nav{
                 /* SECTIONS */
 .flexColumn > nav{
     margin: 60vh 0;
+    position: absolute;
 }
-.networkIcons{
-    margin: 1vh;
-}
+
 #reducedWidth{
     width: 70%;
 }
@@ -83,6 +81,23 @@ button:hover{
 }
 img{
     padding: 0 5vh;
+}
+
+#networkBar{
+    justify-content: space-between;
+    width: 10vh;
+}
+svg{
+    height: 26px;
+    padding: 5px;
+}
+.networkIcons{
+    margin: 1vh;
+}
+.networkIcons:hover{
+    height: 30px;
+    width: 30px;
+    margin: 1vh;
 }
 
                 /* TEXT */
@@ -112,6 +127,9 @@ p{
 }
 
                 /* BURGER MENU */
+.menu{
+    display: none;
+}
 .burgerMenu{
     background-color: rgba(19,57,23,1);
     z-index: 1;
@@ -200,6 +218,9 @@ p{
     }
     .burgerMenu{
         display: none;
+    }
+    #networkBar{
+    display: none;
     }
 }
 
