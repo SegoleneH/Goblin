@@ -11,6 +11,9 @@ body{
 a{
     text-decoration: none;
 }
+.networkIcons, .burgerIcon{
+    height: 30px;
+}
 
             /* FLEXBOX */
 .disFlex{
@@ -47,44 +50,96 @@ header{
 #name{
     margin: 0 0 0 5vh;
 }
-header > nav{
+header>nav{
     width: 100%;
     display: flex;    
     justify-content: space-between;
 }
 
+/* BURGER MENU */
+.burger{
+    width: 0;
+}
+.burgerMenu{
+    display: none;
+}
+.burgerMenu{
+    background-color: rgba(19,57,23,1);
+    z-index: 1;
+    line-height: 15vh;
+    height: 100vh; 
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.burgerIcon{
+    position: absolute;
+    right: 5vh;
+    cursor: pointer;
+}
+/* quand l'icone:hover , .burgerMenu s'affiche */
+.burger:hover .burgerMenu{
+    display: block;
+}
+/* quand Menu est ouvert, Icon disparaît */
+.burger:hover .burgerIcon{
+    display: none;
+}
+.lienBurger{
+    width: 100%;
+}
+.burger{
+    cursor: pointer;
+}
+.lienBurger:hover{
+    background-color: rgba(56,112,61,1);
+    font-weight: 700;
+}
+.burgerIcon:checked ~ main{
+    display: none;
+}
+.burgerIcon:checked ~ main img{
+    position: initial;
+}
+.burgerIcon:hover ~ main .bottomButton{
+    position: initial;
+}
+
+
                 /* SECTIONS */
 #reducedWidth{
     width: 70%;
 }
-#buttonDisplay>button{
+
+/* Boutons */
+#buttonDisplay>.bottomButtons{
     border: solid 1px #4d9559;
     background-color: #4d9559;
     border-radius: 28px;
     padding: 15px 20px;
     margin: 0 5vh;
 }
-/* button2 padding */
-button:hover{
+#buttonDisplay :hover{
     background-color: transparent;
     border: solid 1px white;
+    box-shadow: 3px 3px 8px rgba(23, 23, 23, 0.3);
+}
+#buttonDisplay>button>svg:hover{
+    border: transparent;
+    box-shadow: none;
 }
 #buttonDisplay{
     flex-direction: row;
     position: absolute;
     top: 130vh;
 }
-img{
-    padding: 0 5vh;
-}
 
+/* Barre icônes réseaux sociaux */
 #networkBar{
     align-items: center;
     width: 10vh;
     margin: 60vh 0;
-}
-svg{
-    height: 30px;
 }
 #networkBar>div{
     height: 35px;
@@ -94,6 +149,8 @@ svg{
         width: 35px;
         height: 35px;
 }
+
+/* Bouton retour haut de page */
 #anchorButton{
     background-color: #62af6f ;
     border: solid #62af6f 1px;
@@ -103,6 +160,7 @@ svg{
 #anchorButton>div{
     margin: 10px 10px;
 }
+
                 /* TEXT */
 .headerNavBar>div :hover{
     text-decoration: underline white 2px;
@@ -129,66 +187,13 @@ p{
     margin: 10vh 0;
 }
 
-                /* BURGER MENU */
-.menu{
-    display: none;
-}
-.burgerMenu{
-    background-color: rgba(19,57,23,1);
-    z-index: 1;
-    line-height: 15vh;
-    height: 100vh; 
-/*  ^^^^^^ à modifier  */
-}
-.menu{
-    width: 100%;
-}
-.burgerIcons{
-    position: absolute;
-    right: 5vh;
-    cursor: pointer;
-	overflow: hidden;
-}
-.burgerIcons>input{
-    position: absolute;
-    right: 0.5vh;
-    top: 1.5vh;
-    display: none;
-}
-/* quand .menu=actif, burgerIcon=display none */
-/* dans .menu{}, closeIcon=display none */
-
-.lienBurger{
-    width: 100%;
-}
-.lienBurger:hover{
-    background-color: rgba(56,112,61,1);
-}
-/* si .burger=active, main=display:none
- */
-.burgerIcons:checked ~ main{
-    display: none;
-}
-.burgerIcons:checked ~ main img{
-    position: initial;
-}
-.burgerIcons:checked ~ main button{
-    position: initial;
-}
-/* NE FONCTIONNE PAS 
-
-.burgerIcons :checked .menu{
-    animation: appearance 1s timing-function delay iteration-count direction fill-mode;
-}
-@keyframes appearance{
-    0% { top: 0; left: 0; }
-    30% { top: 50px; }
-    68%, 72% { left: 50px; }
-    100% { top: 100px; left: 100%; }
-}*/
 
 @media (max-width: 767px) {
 /* MOBILE */
+    header>nav{
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
     .flexRow{
         flex-direction: column;
     }
@@ -198,13 +203,16 @@ p{
     .flexColumn > nav , .headerNavBar{
         display: none;
     }
-    .headerNavBar{
+    .headerNavBar .headerNavBar>div{
         display: none;
     }
+    #reducedWidth{
+        width: 100%;
+    }
     #buttonDisplay{
-            flex-direction: column;
-        }
-    button{
+        flex-direction: column;
+    }
+    .bottomButtons{
         flex-direction: row;
     }
     .absolute{
@@ -216,14 +224,12 @@ p{
     #textColumn{
         margin: 0;
     }
-    #reducedWidth{
-        width: 100%;
-    }
-    .burgerMenu{
-        display: none;
-    }
     #networkBar{
         display: none;
+    }
+    .burgerIcon{
+        right: 1vh;
+        top: -25vh;
     }
 }
 
@@ -241,9 +247,7 @@ p{
     #reducedWidth{
         width: 50%;
     }
-    img{
-        width: 90%;
-    }
+    
     h1{
         font-size: 0.8em;
     }
@@ -256,15 +260,19 @@ p{
     .absolute{
         top: 150vh;
     }
+    .burgerIcon{
+        right: 10vh;
+        top: 5vh;
+    }
 } 
 
-@media (min-width: 1024px) {
+@media (min-width: 1023px) {
  /* RESPONSIVE LAPTOP */
 
  .burgerMenu{
     display: none;
  }
- .burgerMenu>a{
+.burger{
     display: none;
  }
 }
