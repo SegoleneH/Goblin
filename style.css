@@ -1,15 +1,32 @@
-                /* GENERAL */
+/* GENERAL */
 
 *{
-    color: #fff;
+    color: var(--white);
     font-family: 'Roboto', sans-serif;
 }
-body{
-    background: linear-gradient(90deg, rgba(19,57,23,1) 0%, rgba(56,112,61,1) 28.53%, rgba(77,149,89,1) 75.52%);
+:root{
+    --vertFonce: rgba(19,57,23,1);
+    --vertMedium: rgba(56,112,61,1);
+    --vertClair: rgba(77,149,89,1) ;
+    --white: #fff;
+    background: linear-gradient(90deg, var(--vertFonce) 0%, var(--vertMedium) 28.53%, var(--vertClair) 75.52%);
 }
-
+@keyframes slide {
+    from{
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
 a{
     text-decoration: none;
+}
+img{
+    aspect-ratio: auto;
 }
 .networkIcons, .burgerIcon{
     height: 30px;
@@ -20,109 +37,75 @@ a{
     display: flex;
     flex-wrap: wrap;
 }
-/* enlever display:flex + ajouter class=disflex aux balises */
-.flexRow{
-    display: flex;
-    flex-direction: row;
-}
-.flexColumn{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-.flexCenter{
-    justify-content: center;
-}
 
                 /* HEADER */
 header{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     height: 15vh;
     font-weight: 700;
     margin: 4vh 0 0 0;
-    width: 100%;
-}
-.headerNavBar{
-    justify-content: end;
-}
-.headerNavBar > div{
-    margin: 0 4vh 0 4vh;
-}
-#name{
-    margin: 0 0 0 5vh;
-}
-header>nav{
-    width: 100%;
-    display: flex;    
+    flex-basis: 100%;
     justify-content: space-between;
 }
-
-/* BURGER MENU */
-.burger{
-    width: 0;
-}
-.burgerMenu{
-    display: none;
-}
-.burgerMenu{
-    background-color: rgba(19,57,23,1);
-    z-index: 1;
-    line-height: 15vh;
-    height: 100vh; 
-    width: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
 .burgerIcon{
-    position: absolute;
-    right: 5vh;
-    cursor: pointer;
-}
-/* quand l'icone:hover , .burgerMenu s'affiche */
-.burger:hover .burgerMenu{
-    display: block;
-}
-/* quand Menu est ouvert, Icon disparaît */
-.burger:hover .burgerIcon{
     display: none;
 }
-.lienBurger{
-    width: 100%;
+.burger>div{
+    margin: 0 1vw;
 }
-.burger{
-    cursor: pointer;
+header div{
+    font-size: 1.2em;
 }
-.lienBurger:hover{
-    background-color: rgba(56,112,61,1);
-    font-weight: 700;
-}
-.burgerIcon:checked ~ main{
-    display: none;
-}
-.burgerIcon:checked ~ main img{
-    position: initial;
-}
-.burgerIcon:hover ~ main .bottomButton{
-    position: initial;
+.burger>div :hover{
+    border-bottom: solid 3px var(--white);
+    padding-bottom: 5px;
+    /*     font-weight: 900;
+    ^ fait bouger tout */
 }
 
 
-                /* SECTIONS */
-#reducedWidth{
-    width: 70%;
+
+/*  Main Container */
+
+.mainContainer{display: flex;
+    flex-wrap: wrap;
+    margin: 3vh 0 0 5vw;
 }
 
-/* Boutons */
-#buttonDisplay>.bottomButtons{
-    border: solid 1px #4d9559;
-    background-color: #4d9559;
+/* Text */
+
+.textColumn{
+    width: 40vw;
+}
+h5{
+    font-size: 1em;
+}
+h4{
+    font-size: 1em;
+}
+h1{ 
+    font-family: 'Permanent Marker', cursive;
+    font-size: 5em;
+}
+p{
+    margin: 10vh 0;
+    line-height: 4vh;
+}
+
+/* CALL TO ACTION */
+
+#buttonDisplay>button{
+    border: solid 1px var(--vertClair);
+    background-color: var(--vertClair);
     border-radius: 28px;
     padding: 15px 20px;
-    margin: 0 5vh;
+    margin: 0 5vh 0 0;
 }
 #buttonDisplay :hover{
     background-color: transparent;
-    border: solid 1px white;
+    border: solid 1px var(--white);
     box-shadow: 3px 3px 8px rgba(23, 23, 23, 0.3);
 }
 #buttonDisplay>button>svg:hover{
@@ -130,66 +113,62 @@ header>nav{
     box-shadow: none;
 }
 #buttonDisplay{
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    position: absolute;
-    top: 130vh;
+}
+
+/* Image Goblin */
+
+.goblinImage{
+    width: 50vw;
+}
+.goblinImage > img{
+    width: 100%;
 }
 
 /* Barre icônes réseaux sociaux */
+
 #networkBar{
+    position: absolute;
+    left: 5px;
+    bottom: 150px;
     align-items: center;
     width: 10vh;
-    margin: 60vh 0;
 }
 #networkBar>div{
     height: 35px;
     margin: 1vh 0;
 }
 #networkBar>div:hover .networkIcons{
-        width: 35px;
-        height: 35px;
+    width: 35px;
+    height: 35px;
+}
+
+/* FOOTER */
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 /* Bouton retour haut de page */
+
 #anchorButton{
-    background-color: #62af6f ;
-    border: solid #62af6f 1px;
+    background-color: var(--vertClair) ;
+    border: solid var(--vertClair) 1px;
     border-radius: 50%;
-    margin: 50vh;
 }
 #anchorButton>div{
     margin: 10px 10px;
 }
 
-                /* TEXT */
-.headerNavBar>div :hover{
-    text-decoration: underline white 2px;
-}
-#textColumn{
-    margin: 0 20vh;
-    width: 60%;
-    line-height: 10vh;
-}
-h1{
-    font-size: 1em;
-    margin: 0 0 5vh 0;
-}
-h2{
-    font-size: 1em;
-    margin: 0 0 5vh;
-}
-h3{ 
-    font-family: 'Permanent Marker', cursive;
-    font-size: 6em;
-    margin: 5vh 5vh 5vh 0;
-}
-p{
-    margin: 10vh 0;
-}
-
+/* MEDIA QUERIES */
 
 @media (max-width: 767px) {
-/* MOBILE */
+    /* MOBILE */
+    
     header>nav{
         flex-wrap: nowrap;
         flex-direction: row;
@@ -197,55 +176,55 @@ p{
     .flexRow{
         flex-direction: column;
     }
-   .flexColumn{
+    .flexColumn{
         align-content: center;
     }
-    .flexColumn > nav , .headerNavBar{
-        display: none;
-    }
-    .headerNavBar .headerNavBar>div{
-        display: none;
-    }
-    #reducedWidth{
-        width: 100%;
-    }
+    
     #buttonDisplay{
         flex-direction: column;
     }
     .bottomButtons{
         flex-direction: row;
     }
-    .absolute{
-        top: 300vh;
-    }
-    img{
-        margin: 30vh 5vh;
-    }
-    #textColumn{
-        margin: 0;
-    }
+
     #networkBar{
         display: none;
     }
-    .burgerIcon{
-        right: 1vh;
-        top: -25vh;
-    }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
- /* TABLET */   
+@media (max-width: 1023px) {
+    /* TABLET */   
     body{
         margin: 0;
     }
     .headerNavBar{
         display: none;
     }
+    /* BURGER MENU */
+    .burger{
+        background-color: var(--vertFonce);
+        z-index: 1;
+        line-height: 15vh; 
+        /* Remplacer line-heigth par heigth 100vh plus space-between sur les div */
+        cursor: pointer;
+    }
+    .burgerIcon{
+        cursor: pointer;
+    }
+    
+    /* quand burgerIcon:hover , .burger */
+    .burgerIcon:hover~.burger{
+        display: block;
+        animation-name: slide;
+        animation-duration: 1.5s;
+        animation-delay: 0ms;
+    }
+    .burger>a:hover{
+        background-color: var(--vertMedium);
+        font-weight: 700;
+    }
     .flexColumn{
         align-content: center;
-    }
-    #reducedWidth{
-        width: 50%;
     }
     
     h1{
@@ -264,15 +243,7 @@ p{
         right: 10vh;
         top: 5vh;
     }
+    #networkBar{
+        display: none;
+    }
 } 
-
-@media (min-width: 1023px) {
- /* RESPONSIVE LAPTOP */
-
- .burgerMenu{
-    display: none;
- }
-.burger{
-    display: none;
- }
-}
