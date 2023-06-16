@@ -1,0 +1,304 @@
+/* GENERAL */
+
+*{
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+}
+:root{
+    --vertFonce: rgba(19,57,23,1);
+    --vertMedium: rgba(56,112,61,1);
+    --vertClair: rgba(77,149,89,1) ;
+    --white: #fff;
+    --shadow: 5px 7px 11px 1px rgba(0,0,0,0.5);
+
+    background: linear-gradient(90deg, var(--vertFonce) 0%, var(--vertMedium) 28.53%, var(--vertClair) 75.52%);
+}
+@keyframes slide {
+    from{
+        opacity: 0;
+        transform: translateX(100vh);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+a{
+    text-decoration: none;
+}
+img{
+    aspect-ratio: auto;
+}
+.networkIcons, .burgerIcon{
+    height: 30px;
+}
+
+            /* FLEXBOX */
+.disFlex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+                /* HEADER */
+header{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 15vh;
+    font-weight: 700;
+    margin: 4vh 0 0 0;
+    flex-basis: 100%;
+    justify-content: space-between;
+}
+.burgerIcon{
+    display: none;
+}
+.burger>div{
+    margin: 0 1vw;
+}
+header div{
+    font-size: 1.2em;
+}
+.burger>div :hover{
+    border-bottom: solid 3px var(--white);
+    padding-bottom: 5px;
+    /*     font-weight: 900;
+    ^ fait bouger tout */
+}
+
+
+
+/*  Main Container */
+
+.mainContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3vh 0 0 5vw;
+}
+
+/* Text */
+
+.textColumn{
+    width: 42vw;
+}
+h5{
+    font-size: 1em;
+}
+h4{
+    font-size: 1em;
+}
+h1{ 
+    font-family: 'Permanent Marker', cursive;
+    font-size: 5em;
+}
+p{
+    margin: 10vh 0;
+    line-height: 4vh;
+}
+
+/* CALL TO ACTION */
+#buttonDisplay{
+    display: flex;
+}
+
+#buttonDisplay>button{
+    border: solid 1px var(--vertClair);
+    background-color: var(--vertClair);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+}
+.compareButton {
+    padding: 2.5vh 3vw;
+}
+.watchButton{
+    margin: 0 0 0 3vw;
+    padding: 2.5vh 2vw;
+    >div>svg{
+        position: relative;
+        top: 0.5vh;
+    }
+}
+#buttonDisplay>button:hover{
+    background-color: transparent;
+    border: solid 1px var(--white);
+    box-shadow: 3px 3px 8px rgba(23, 23, 23, 0.3);
+}
+#buttonDisplay>button>svg:hover{
+    border: transparent;
+    box-shadow: none;
+}
+
+/* Image Goblin */
+
+.goblinImage{
+    width: 50vw;
+}
+.goblinImage > img{
+    width: 100%;
+}
+
+/* Barre icônes réseaux sociaux */
+
+#networkBar{
+    position: absolute;
+    left: 5px;
+    bottom: 150px;
+    align-items: center;
+    width: 10vh;
+}
+#networkBar>div{
+    height: 35px;
+    margin: 1vh 0;
+}
+#networkBar>div:hover .networkIcons{
+    width: 35px;
+    height: 35px;
+}
+
+/* FOOTER */
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 1vh 1vw;
+}
+
+/* Bouton retour haut de page */
+
+#anchorButton{
+    background-color: var(--vertClair) ;
+    border: solid var(--vertClair) 1px;
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    padding: 15px 15px;
+    >div{
+        margin: 10px 10px;
+    }
+}
+footer a:hover #anchorButton{
+    background-color: transparent; 
+    padding: 17px 17px; 
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1023px) {
+    /* TABLET */   
+    body{
+        margin: 0;
+    }
+    header>nav{
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+    /* .burger{
+        background: transparent;
+        z-index: 1;
+    }    */
+    h2{
+        font-size: 0.8em;   
+    }
+    h3{ 
+        font-size: 4em;
+    }
+    #networkBar{
+        display: none;
+    }
+    #buttonDisplay{
+        justify-content: space-between;
+        width: 43vw;
+    }   
+    .watchButton{
+        margin: 0;
+    }
+} 
+@media (max-width: 767px) {
+    /* MOBILE */
+    
+    header>nav{
+        
+        >div {
+            flex-direction: column;
+        }
+    }
+    .burger>div :hover{
+        border-bottom: 3px transparent;
+        padding-bottom: 5px;
+        background-color: var(--vertClair);
+    }
+  
+    .burger{
+        display: none;
+        background-color: var(--vertFonce);
+    }
+    .burgerIcon{
+        display: block;
+        position: absolute;
+        top: 5vh;
+        right: 5vh;
+    }
+    .burgerIcon, .burger{
+        cursor: pointer;
+    }
+    /* quand burgerIcon:hover , .burger */
+    #burgerImgContainer:hover~.burger{
+        display: flex;
+        animation: slide 2s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        justify-content: space-around;  
+        align-items: center;      
+    }
+    #burgerImgContainer:hover .burgerIcon{
+        opacity: 0;
+    }
+    .burger>div:hover{
+        
+        background-color: var(--vertMedium);
+        font-weight: 700;
+    }
+    .mainContainer{
+        flex-direction: column;
+        margin: auto;
+        >*{
+            display: flex;
+            flex-direction: column;    
+        }
+        >div{
+            margin: 5vh 0;
+        }
+        >.textColumn{
+        width: 70vw;
+        }
+    }   
+    #buttonDisplay{
+        flex-direction: column;
+        margin: auto;
+
+        >button{
+        margin: 2.5vh auto;
+        box-shadow: var(--shadow);
+        }
+        
+    }
+    .compareButton{
+        padding: 2.5vh 3vw;
+        width: 25vw;
+    }
+    #anchorButton{
+        padding: 7px 7px;
+    }
+    footer a:hover #anchorButton{
+        padding: 12px 12px; 
+    }   
+    .goblinImage{
+        width: 70vw;
+    } 
+}
+
+
