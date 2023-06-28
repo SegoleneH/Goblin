@@ -223,15 +223,35 @@ footer a:hover #anchorButton{
             flex-direction: column;
         }
     }
-    .burger>div :hover{
-        border-bottom: 3px transparent;
-        padding-bottom: 5px;
-        background-color: var(--vertClair);
+    /* ^^ à quoi ça sert ?? */
+
+    .burgerIcon, .burger{
+        cursor: pointer;
     }
-  
     .burger{
         display: none;
         background-color: var(--vertFonce);
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        justify-content: space-around;  
+        align-items: center;
+        z-index: 99;
+        overflow-y: scroll;
+    }
+    .burger>div{
+        width: 100vw;
+        text-align: center;
+        padding: 10vh 0;
+        margin: 0;
+    }
+    .burger>div:hover{
+        padding: 10vh 0;
+        background-color: var(--vertClair);
+    }
+    .burger>div :hover{
+        border-bottom: none;
     }
     .burgerIcon{
         display: block;
@@ -239,57 +259,51 @@ footer a:hover #anchorButton{
         top: 5vh;
         right: 5vh;
     }
-    .burgerIcon, .burger{
-        cursor: pointer;
-    }
+    
     /* quand burgerIcon:hover , .burger */
-    #burgerImgContainer:hover~.burger{
-        display: flex;
+    #burgerImgContainer:hover .burger{
         animation: slide 2s;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        justify-content: space-around;  
-        align-items: center;      
+        display: flex;  
     }
-    #burgerImgContainer:hover .burgerIcon{
+    /* #burgerImgContainer:hover .burgerIcon{
         opacity: 0;
-    }
-    .burger>div:hover{
-        
-        background-color: var(--vertMedium);
-        font-weight: 700;
-    }
+        ==> position:relative disparition
+    } */
+
     .mainContainer{
         flex-direction: column;
-        margin: auto;
-        >*{
-            display: flex;
-            flex-direction: column;    
-        }
-        >div{
-            margin: 5vh 0;
-        }
-        >.textColumn{
-        width: 70vw;
-        }
-    }   
+        margin: 0 auto;
+    }
+    .textColumn{
+    width: 90vw;
+    margin: 0 auto;
+    }
+    p{
+        line-height: 1.5;
+        margin-bottom: 15vh;
+    }
     #buttonDisplay{
         flex-direction: column;
         margin: auto;
-
-        >button{
-        margin: 2.5vh auto;
+    }
+    #buttonDisplay>button{
+        margin: 2vh auto;
         box-shadow: var(--shadow);
-        }
-        
+        font-size: 0.8em;
     }
     .compareButton{
         padding: 2.5vh 3vw;
         width: 25vw;
     }
+    .watchButton{
+        padding: 2.5vh 3vw 2.5vh 0;
+    }
+    .watchButton>div>svg{
+        position: relative;
+        top: 0.5vh;
+        margin: 0 0 0 3vw;
+    }
+
     #anchorButton{
         padding: 7px 7px;
     }
@@ -298,6 +312,7 @@ footer a:hover #anchorButton{
     }   
     .goblinImage{
         width: 70vw;
+        margin: 10vh auto;
     } 
 }
 
