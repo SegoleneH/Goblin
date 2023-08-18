@@ -192,10 +192,6 @@ footer a:hover #anchorButton{
         flex-wrap: nowrap;
         flex-direction: row;
     }
-    /* .burger{
-        background: transparent;
-        z-index: 1;
-    }    */
     h2{
         font-size: 0.8em;   
     }
